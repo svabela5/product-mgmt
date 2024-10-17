@@ -16,7 +16,7 @@
 
 @if (products != null && products.length > 0) {
 <div class="mt-3">
-    <button class="btn btn-primary">Show images</button>
+    <button class="btn btn-primary" (click)="toggleImages()">Show images</button>
 </div>
 
 <div class="table-responsive mt-3">
@@ -34,7 +34,17 @@
         <tbody>
             @for (product of products; track product.productCode) {
                 <tr>
-                    <td></td>
+                    <td>
+                        @if (areImagesVisible) {
+                            <img 
+                            [src]="product.imageUrl" 
+                            [style.width.px]="imageWidth"
+                            [style.margin.px]="imageMargin"
+                            [title]="product.productName"
+                            [alt]="product.description"
+                        >
+                        }
+                    </td>
                     <td>{{product.productCode}}</td>
                     <td>{{product.productName}}</td>
                     <td>{{product.price}}</td>
@@ -46,3 +56,25 @@
     </table>
 </div>
 }
+
+<!-- <div class="mt-5 mb-3">
+    <h3>Working with interpolation</h3>
+</div>
+
+<div class="mt-2">
+    <p>{{'Hello welcome to ' + 'Angular data binding'}}</p>
+
+    <p>{{100*80}}</p>
+
+    <p style.color="{{color}}">This is colored</p>
+</div>
+
+<div class="mt-5 mb-3">
+    <h3>Working with property binding</h3>
+</div>
+
+<div class="mt-2">
+    <p [innerText]="title"></p>
+    <p [innerText]="'Hello and welcome to ' + 'Angular data binding'"></p>
+    <p [style.color]="color">This is colored</p>
+</div> -->

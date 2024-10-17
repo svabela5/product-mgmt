@@ -9,6 +9,10 @@ import { Component } from '@angular/core';
 })
 export class ProductListComponent {
   title: string = "Product Management System";
+  color: String = "darkred";
+  areImagesVisible: Boolean = false;
+  imageWidth: number = 50;
+  imageMargin: number = 2
   products: any[] = [
     {
         "productId": 1,
@@ -65,10 +69,14 @@ export class ProductListComponent {
       "productName": "Bonnett u Bumper",
       "productCode": "Bon-0042",
       "releaseDate": "September 13, 2005",
-      "description": "Standard two-button video game controller",
+      "description": "Standard frontend of a car",
       "price": 100.00,
       "starRating": 5,
-      "imageUrl": "http://openclipart.org/image/300px/svg_to_png/120337/xbox-controller_01.png"
+      "imageUrl": "https://media.istockphoto.com/id/1145720458/photo/3d-illustration-of-generic-red-car-front-view.jpg?s=612x612&w=0&k=20&c=GeLrH7n-UMTX6l1ULskxQG9_6D_PTlW3m96RMAQzErU="
   }
 ];
+
+  toggleImages(){
+    this.areImagesVisible = !this.areImagesVisible;
+  }
 }
