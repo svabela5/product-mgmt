@@ -1,18 +1,26 @@
+import { CurrencyPipe, LowerCasePipe, UpperCasePipe } from '@angular/common';
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { pipe } from 'rxjs';
 
 @Component({
   selector: 'app-product-list',
   standalone: true,
-  imports: [],
+  imports: [FormsModule, UpperCasePipe, LowerCasePipe, CurrencyPipe],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.css'
 })
 export class ProductListComponent {
   title: string = "Product Management System";
   color: String = "darkred";
+
   areImagesVisible: Boolean = false;
+
   imageWidth: number = 50;
   imageMargin: number = 2
+
+  listFilter: string = "";
+
   products: any[] = [
     {
         "productId": 1,
