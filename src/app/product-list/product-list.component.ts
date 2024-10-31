@@ -1,7 +1,7 @@
 import { CurrencyPipe, DatePipe, LowerCasePipe, UpperCasePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { pipe } from 'rxjs';
+import { filter, pipe } from 'rxjs';
 import { Product } from '../dto/product.dto';
 import { ConvertToSpace } from "../Pipes/convert-to-space.pipe";
 
@@ -96,5 +96,12 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit(): void {
     this.initialiseProducts()
+  }
+
+  performFilter(filterBy: string):Product[]{
+    filterBy = filterBy.toLocaleLowerCase();
+    return this.products.filter((product: Product) => {
+      return product.name.toLocaleLowerCase().indexOf(filterBy) != -1;
+    })
   }
 }
