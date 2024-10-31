@@ -3,11 +3,12 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { pipe } from 'rxjs';
 import { Product } from '../dto/product.dto';
+import { ConvertToSpace } from "../Pipes/convert-to-space.pipe";
 
 @Component({
   selector: 'app-product-list',
   standalone: true,
-  imports: [FormsModule, UpperCasePipe, LowerCasePipe, CurrencyPipe, DatePipe],
+  imports: [FormsModule, UpperCasePipe, LowerCasePipe, CurrencyPipe, DatePipe, ConvertToSpace],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.css'
 })
