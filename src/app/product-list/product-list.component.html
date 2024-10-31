@@ -34,7 +34,7 @@
             </tr>
         </thead>
         <tbody>
-            @for (product of products; track product.productCode) {
+            @for (product of products; track product.code) {
                 <tr>
                     @if (areImagesVisible) {
                         <td>
@@ -42,15 +42,15 @@
                                 [src]="product.imageUrl" 
                                 [style.width.px]="imageWidth"
                                 [style.margin.px]="imageMargin"
-                                [title]="product.productName | uppercase"
+                                [title]="product.name | uppercase"
                                 [alt]="product.description"
                             >
                         </td>
                     }
-                    <td>{{product.productCode | lowercase}}</td>
-                    <td>{{product.productName | uppercase}}</td>
+                    <td>{{product.code | lowercase}}</td>
+                    <td>{{product.name | uppercase}}</td>
                     <td>{{product.price | currency:'EUR':'symbol':'1.2-2'}}</td>
-                    <td>{{product.releaseDate}}</td>
+                    <td>{{product.releaseDate | date}}</td>
                     <td>{{product.starRating}}</td>
                 </tr>
             }
