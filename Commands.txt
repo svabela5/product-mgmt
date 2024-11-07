@@ -1,3 +1,4 @@
 create a new product ng new project-name
 create a component: ng generate component component-name
 Run the app: ng serve --open
+install bootstap: npm install bootstap
