@@ -14,7 +14,7 @@
     </div>
 </div>
 
-@if (products != null && products.length > 0) {
+@if (filteredProducts != null && products.length > 0) {
 <div class="mt-3">
     <button class="btn btn-primary" (click)="toggleImages()">{{areImagesVisible ? 'Hide' : 'Show'}} images</button>
 </div>
@@ -34,7 +34,7 @@
             </tr>
         </thead>
         <tbody>
-            @for (product of products; track product.code) {
+            @for (product of filteredProducts; track product.code) {
                 <tr>
                     @if (areImagesVisible) {
                         <td>

@@ -21,9 +21,20 @@ export class ProductListComponent implements OnInit {
   imageWidth: number = 50;
   imageMargin: number = 2
 
-  listFilter: string = "";
+  private _listFilter: string = "";
 
-  products: Product[] = [];
+  get ListFilter():string{
+    return this._listFilter;
+  }
+
+  set listFilter(filterValue: string){
+    this._listFilter = filterValue;
+    this.filteredProducts = this.performFilter(filterValue);
+
+  }
+
+  products: Product[] = []
+  filteredProducts: Product[] = [];
 
   toggleImages(){
     this.areImagesVisible = !this.areImagesVisible;
@@ -96,6 +107,7 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit(): void {
     this.initialiseProducts()
+    this.filteredProducts = this.products;
   }
 
   performFilter(filterBy: string):Product[]{
