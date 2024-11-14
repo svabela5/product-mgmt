@@ -4,11 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { filter, pipe } from 'rxjs';
 import { Product } from '../dto/product.dto';
 import { ConvertToSpace } from "../Pipes/convert-to-space.pipe";
+import { StarRatingComponent } from "../star-rating/star-rating.component";
 
 @Component({
   selector: 'app-product-list',
   standalone: true,
-  imports: [FormsModule, UpperCasePipe, LowerCasePipe, CurrencyPipe, DatePipe, ConvertToSpace],
+  imports: [FormsModule, UpperCasePipe, LowerCasePipe, CurrencyPipe, DatePipe, ConvertToSpace, StarRatingComponent],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.css'
 })
