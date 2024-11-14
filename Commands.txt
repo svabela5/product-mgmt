@@ -2,3 +2,11 @@ create a new product ng new project-name
 create a component: ng generate component component-name
 Run the app: ng serve --open
 install bootstap: npm install bootstap
+and modify the following to look like this in the angular.json
+"styles": [
+    "node_modules/bootstrap/dist/css/bootstrap.min.css",
+    "src/styles.css"
+],
+"scripts": [
+    "node_modules/bootstrap/dist/js/bootstrap.min.js"
+]
