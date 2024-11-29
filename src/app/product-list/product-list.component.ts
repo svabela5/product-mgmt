@@ -32,6 +32,10 @@ export class ProductListComponent implements OnInit {
   set listFilter(filterValue: string){
     this._listFilter = filterValue;
 
+    this.productService.searchProductsByName(filterValue).subscribe((response: Product[]) => {
+      this.products = response;
+    });
+
   }
 
   products: Product[] = []
