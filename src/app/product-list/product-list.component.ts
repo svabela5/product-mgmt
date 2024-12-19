@@ -25,7 +25,7 @@ export class ProductListComponent implements OnInit {
 
   private _listFilter: string = "";
 
-  get ListFilter():string{
+  get listFilter():string{
     return this._listFilter;
   }
 
