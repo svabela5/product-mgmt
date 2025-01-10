@@ -4,6 +4,7 @@ import { ProductService } from '../services/product.service';
 import { CurrencyPipe, DatePipe, LowerCasePipe, UpperCasePipe } from '@angular/common';
 import { ConvertToSpace } from "../Pipes/convert-to-space.pipe";
 import { StarRatingComponent } from "../star-rating/star-rating.component";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-detail',
@@ -17,12 +18,16 @@ export class ProductDetailComponent implements OnInit{
   id!: number;
   product!: Product;
 
-  constructor(private productService: ProductService){}
+  constructor(private productService: ProductService, private router: Router){}
 
   ngOnInit(): void {
     console.log(this.id);
     this.productService.getProductById(this.id).subscribe((response: Product) => {
       this.product = response;
     })
+  }
+
+  onBackButtonClick() {
+    this.router.navigate(['/products'])
   }
 }
