@@ -1,1 +1,36 @@
-<p>product-detail works!</p>
+@if (product) {
+    <div class="card">
+        <div class="card-header">
+            ID: {{product.id}}
+        </div>
+
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-2">Code</div>
+                <div class="col-md-10">{{product.code| uppercase | convertToSpace:'-'}}</div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-2">Name</div>
+                <div class="col-md-10">{{product.name | lowercase}}</div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2">Price</div>
+                <div class="col-md-10">{{product.price | currency:'EUR':'symbol':'1.2-2'}}</div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2">Release Date</div>
+                <div class="col-md-10">{{product.releaseDate | date}}</div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2">Star Rating</div>
+                <div class="col-md-10">
+                    <app-star-rating [productRating]="product.starRating"></app-star-rating>
+                </div>
+            </div>
+        </div>
+    </div>
+}

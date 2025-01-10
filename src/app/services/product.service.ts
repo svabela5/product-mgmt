@@ -24,6 +24,10 @@ export class ProductService {
         return this.httpClient.get<Product[]>(this.endpoint);
     }
 
+    getProductById(id:number): Observable<Product>{
+        return this.httpClient.get<Product>(this.endpoint + '/' + id);
+    }
+
     searchProductsByName(query: string):Observable<Product[]>{
         return this.httpClient.get<Product[]>(this.endpoint + "?name=" + query);
     }

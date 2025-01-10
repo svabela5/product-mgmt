@@ -6,11 +6,12 @@ import { Product } from '../dto/product.dto';
 import { ConvertToSpace } from "../Pipes/convert-to-space.pipe";
 import { StarRatingComponent } from "../star-rating/star-rating.component";
 import { ProductService } from '../services/product.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-product-list',
   standalone: true,
-  imports: [FormsModule, UpperCasePipe, LowerCasePipe, CurrencyPipe, DatePipe, ConvertToSpace, StarRatingComponent],
+  imports: [FormsModule, UpperCasePipe, LowerCasePipe, CurrencyPipe, DatePipe, ConvertToSpace, StarRatingComponent, RouterLink],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.css'
 })
