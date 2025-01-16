@@ -12,7 +12,7 @@ export class ProductService {
 
     httpHeader = {
         headers: new HttpHeaders({
-            "Content-Type": "application-json"
+            "Content-Type": "application/json"
         })
     }
 
