@@ -15,6 +15,10 @@
                             @if (productForm.get("code")?.hasError('required')) {
                                 <div>Code is required</div>
                             }
+
+                            @if (productForm.get("code")?.hasError('invlaidCodeFormat')) {
+                                <div>Code should have 3 Capital letters followed by a '-' followed by 3 digits that are greater than 100</div>
+                            }
                         </div>
                     }
                 </div>
