@@ -10,77 +10,103 @@
                     <label for="txtCode">Code</label>
                     <input type="text" class="form-control" id="txtCode" formControlName="code" placeholder="Enter Code">
 
-                    <div class="text-danger">
-                        @if (productForm.get("code")?.hasError('required')) {
-                            <div>Code is required</div>
-                        }
-                    </div>
+                    @if (shouldProcessControlValidationMessages('code')) {
+                        <div class="text-danger">
+                            @if (productForm.get("code")?.hasError('required')) {
+                                <div>Code is required</div>
+                            }
+                        </div>
+                    }
                 </div>
 
                 <div class="form-group mt-2">
                     <label for="txtName">Name</label>
                     <input type="text" class="form-control" id="txtName" formControlName="name" placeholder="Enter Name">
 
-                    <div class="text-danger">
-                        @if (productForm.get("name")?.hasError('required')) {
-                            <div>Name is required</div>
-                        }
-                    </div>
+                    @if (shouldProcessControlValidationMessages('name')) {
+                        <div class="text-danger">
+                            @if (productForm.get("name")?.hasError('required')) {
+                                <div>Name is required</div>
+                            }
+                        </div>
+                    }
                 </div>
 
                 <div class="form-group mt-2">
                     <label for="txtDesc">Description</label>
                     <input type="text" class="form-control" id="txtDesc" formControlName="description" placeholder="Enter Description">
 
-                    <div class="text-danger">
-                        @if (productForm.get("description")?.hasError('required')) {
-                            <div>Description is required</div>
-                        }
-                    </div>
+                    @if (shouldProcessControlValidationMessages('description')) {
+                        <div class="text-danger">
+                            @if (productForm.get("description")?.hasError('required')) {
+                                <div>Description is required</div>
+                            }
+                        </div>
+                    }
                 </div>
 
                 <div class="form-group mt-2">
                     <label for="txtrelDate">Release Date</label>
                     <input type="date" class="form-control" id="txtrelDate" formControlName="releaseDate" placeholder="Enter Release Date">
 
-                    <div class="text-danger">
-                        @if (productForm.get("releaseDate")?.hasError('required')) {
-                            <div>Release Date is required</div>
-                        }
-                    </div>
+                    @if (shouldProcessControlValidationMessages('releaseDate')) {
+                        <div class="text-danger">
+                            @if (productForm.get("releaseDate")?.hasError('required')) {
+                                <div>Release Date is required</div>
+                            }
+                        </div>
+                    }
                 </div>
 
                 <div class="form-group mt-2">
                     <label for="txtPrice">Price</label>
                     <input type="number" class="form-control" id="txtPrice" formControlName="price" placeholder="Enter Price">
 
-                    <div class="text-danger">
-                        @if (productForm.get("price")?.hasError('required')) {
-                            <div>Price is required</div>
-                        }
-                    </div>
+                    @if (shouldProcessControlValidationMessages('price')) {
+                        <div class="text-danger">
+                            @if (productForm.get("price")?.hasError('required')) {
+                                <div>Price is required</div>
+                            }
+
+                            @if (productForm.get("price")?.hasError("min")) {
+                                <div>Price cannot be less than 0.01</div>
+                            }
+                        </div>
+                    }
                 </div>
 
                 <div class="form-group mt-2">
                     <label for="txtStarRating">Star Rating</label>
                     <input type="number" class="form-control" id="txtStarRating" formControlName="starRating" placeholder="Enter Star Rating">
 
-                    <div class="text-danger">
-                        @if (productForm.get("starRating")?.hasError('required')) {
-                            <div>Star Rating is required</div>
-                        }
-                    </div>
+                    @if (shouldProcessControlValidationMessages('starRating')) {
+                        <div class="text-danger">
+                            @if (productForm.get("starRating")?.hasError('required')) {
+                                <div>Star Rating is required</div>
+                            }
+
+                            @if (productForm.get("starRating")?.hasError("min")) {
+                                <div>Star Rating cannot be less than 0</div>
+                            }
+
+                            @if (productForm.get("starRating")?.hasError("max")) {
+                                <div>Star Rating cannot be greater than 5</div>
+                            }
+                        </div>
+                    }
                 </div>
 
                 <div class="form-group mt-2">
                     <label for="txtImg">ImageUrl</label>
                     <input type="url" class="form-control" id="txtImg" formControlName="imageUrl" placeholder="Enter URL">
 
-                    <div class="text-danger">
-                        @if (productForm.get("imageUrl")?.hasError('required')) {
-                            <div>Image URL is required</div>
-                        }
-                    </div>
+                    @if (shouldProcessControlValidationMessages('imageUrl')) {
+                        <div class="text-danger">
+                            @if (productForm.get("imageUrl")?.hasError('required')) {
+                                <div>Image URL is required</div>
+                            }
+                        </div>
+                    }
                 </div>
             </fieldset>
 

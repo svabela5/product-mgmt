@@ -4,6 +4,7 @@ import { ProductService } from '../services/product.service';
 import { ProductAddUpdate } from '../dto/product-add-update.dto';
 import { Product } from '../dto/product.dto';
 import { Router } from '@angular/router';
+import { productCodeValidator } from '../validators/product-code.validator';
 
 @Component({
   selector: 'app-add-product',
@@ -21,12 +22,12 @@ export class AddProductComponent implements OnInit {
 
   ngOnInit(): void {
     this.productForm = this.formBuilder.group({
-      code: ['', Validators.required],
+      code: ['', [Validators.required, productCodeValidator()]],
       name: ['', Validators.required],
       description: ['', Validators.required],
       releaseDate: ['', Validators.required],
-      price: ['', Validators.required],
-      starRating: ['', Validators.required],
+      price: ['', [Validators.required, Validators.min(0.01)]],
+      starRating: ['', [Validators.required, Validators.min(0), Validators.max(5)]],
       imageUrl: ['', Validators.required]
     })
   }
